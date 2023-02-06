@@ -32,17 +32,9 @@ def getItem(id:int, session: Session = Depends(get_session)):
     item = session.query(models.Item).get(id)
     return item   
 
-#@app.post("/")
-#def addItem(item:schemas.Item):
- #   newId = len(fakeDatabase.keys()) + 1
-  #  fakeDatabase[newId] = {"task":item.task}
-   # return fakeDatabase
 
-#@app.post("/")
-#def addItem(item:schemas.Item):
- #   newId = len(fakeDatabase.keys()) + 1
-  #  fakeDatabase[newId] = {"task":item.task}
-   #return fakeDatabase
+
+
 
 @app.post("/")
 def addItem(item:schemas.Item, session: Session = Depends(get_session)):
@@ -53,11 +45,6 @@ def addItem(item:schemas.Item, session: Session = Depends(get_session)):
     
     return item
 
-#@app.post("/")
-#def addItem(body = Body()):
- #   newId = len(fakeDatabase.keys()) + 1
-  #  fakeDatabase[newId] = {"task":body['task']}
-   # return fakeDatabase 
 
 @app.put("/{id")
 def updateItem(id:int,item:schemas.Item, session: Session = Depends(get_session)):
